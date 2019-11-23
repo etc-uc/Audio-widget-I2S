@@ -60,9 +60,9 @@ PCM reprezinta transformarea semnalelor analogice in semnale digitale printr-un 
 
 3.Capabilitati de redare audio pana la 24bit/96kHz (bit depth / sampling rate).
 
-4.Tensiune de alimentare: 5V
+4.Tensiune de alimentare: 5V (doar daca utilizam DAC-ul si interfata I2S) , +12/-12V (daca se utilizeaza si amplificatorul final)
 
-5.Consum max: 500mA 
+5.Consum max: 1-1,5A (este necesara alimentare suplimentara deoarece amplificatorul final de casti se alimenteaza diferential) 
 
 ### Constructie montaj:
 
@@ -75,5 +75,60 @@ Contructia se bazeaza pe un design modular , iar in acest sens voi concepe intre
 Ideea conceperii montajului intr-un sistem modular este pentru imbunatatirea "lantului" pe decursul timpului (ex. realizarea unui DAC mai performant din perspectiva SNR / PSRR sau schimbarea unei surse liniare cu una in comutatie sau adaugarea de acumulatori pentru portabilitate etc.)
 
 De altfel,un montaj modular poate presupune o asezare mai buna in cutie si,totodata, un ecranaj mai bun al partilor **mai sensibile** fata de circuitul de alimentare.
+![IMAG1202](https://user-images.githubusercontent.com/54248886/69480411-e6efe080-0e0f-11ea-8b53-cbce3b7b18eb.jpg)
+![IMAG1204](https://user-images.githubusercontent.com/54248886/69480420-f707c000-0e0f-11ea-8b5e-79ab937f0673.jpg)
+![IMAG1206](https://user-images.githubusercontent.com/54248886/69480430-05ee7280-0e10-11ea-9400-69c43f24d674.jpg)
+
+#### Particularitate software:
+
+Ideea interfetei I2S este bazata pe un proiect deja existent in mediul online , anume SDR-Widget https://github.com/borgestrand/sdr-widget
+
+Asadar hardware-ul din spatele acestui sistem a fost dezvoltat in asa fel incat firmware-ul cu care am programat AVR-ul sa fie direct compatibil.
+Din punct de vedere functional, din software-ul dezvoltat in acel proiect am folosit doar mediul de comunicare audio via USB (UAC1 si UAC2) si partea de control software a volumului.
+
+Consider ca nu este necesar sa uploadez toate sursele C pentru generarea firmware-ului , asa ca voi atasa fisierul HEX(.elf) continand versiunea stabila de firmware pentru acest sistem.
 
 
+##### Programarea microcontrollerului:
+
+Seria UC3A3 de la Atmel(Microchip-ish or whatsoever) au incarcate din fabricatie un bootloader ce contine un USB DFU(Device Firmware Upgrade).
+DFU este un protocol ce se regaseste in orice tip de terminal ce are propriul sistem de operare,deoarece faciliteaza operatiunea de rescriere a software-ului deja setat in terminalul respectiv utilizand o interfata de comunicare uzuala.
+
+De aceea , microcontrolerul pe care l-am utilizat in montaj (AT32UC3A3256) l-am programat cu doar un USB si programul ATMEL FLIP 3.4.7 , utilizand din acesta batchisp-ul (pentru ca,prin constructia sa , programul Flip nu suporta la un nivel stabil aceasta serie de uC-uri).
+
+![image](https://user-images.githubusercontent.com/54248886/69480608-a1341780-0e11-11ea-83ec-910466c1f9c6.png)
+
+Nu mai pot reproduce inca o data procesul de programare (sau il voi mai face ulterior daca dezvolt un alt firmware mai performant pentru cerinta data), dar comanda de programare pe care am utilizat-o este:
+**batchisp -device at32uc3a3256 -hardware usb -operation erase f memory flash blankcheck loadbuffer widget.elf program verify start reset 0**
+Unde widget.elf se inlocuieste cu denumirea HEX-ului de urcat pe uC.
+
+Dupa introducerea comenzii se executa programarea uC-ului in 11 pasi:
+
+AT32UC3A3256 - USB - USB/DFU
+
+Device selection....................... PASS
+Hardware selection..................... PASS
+Opening port........................... PASS
+Reading Bootloader version............. PASS    1.0.3
+Erasing................................ PASS
+Selecting FLASH........................ PASS
+Blank checking......................... PASS    0x00000 0x3ffff
+Parsing ELF file....................... PASS    widget.elf
+WARNING: The user program and the bootloader overlap!
+Programming memory..................... PASS    0x00000 0x1c43f
+Verifying memory....................... PASS    0x00000 0x1c43f
+Starting Application................... PASS    RESET   0
+
+Summary:  Total 11   Passed 11   Failed 0
+
+Dupa programarea uC-ului calculatorul "teoretic" ar trebui sa il recunoasca automat si sa instantieze driverul necesar utilizarii acestuia. Cel putin in Windows 10 nu exista probleme de compatibilitate a driverelor, recunoscandu-le automat la conectarea interfetei. Posibil sa existe probleme de "backwards compatibility" a firmware-ului cu versiunile mai vechi de Windows,dar se rezolva instaland manual "inf drivers".
+
+#### Utilizare:
+
+![Asio_logo](https://user-images.githubusercontent.com/54248886/69481196-d04d8780-0e17-11ea-891d-d0f364f49dae.png)
+
+
+Ca si software , interfata este gandita destul de simplist,deoarece se considera ca este suficient doar un control al volumului,niciun fel de egalizare grafica sau corectie de tonuri.
+Software-ul de control este scris pe framework-ul ASIO (_Audio Stream Input-Output_).
+Ca si un mic memo : ASIO este un protocol de drivere open-sourced pentru "sound card-uri" specificat in industria audio de firma Steinberg.
+Ca si functionare a protocolului : ASIO produce un bypass al caii audio normale la nivel de aplicatie din sistemul de operare utilizat,astfel incat sa se evite "layer-ele" suplimentare la nivel de software.Acest lucru permite aplicatiei sa se conecteze la sound card direct,fara intermedierea sistemului de operare in procesul respectiv.Acest lucru duce la o reducere foarte mare a latentei de transfer a informatiei audio de la soft la hard.
