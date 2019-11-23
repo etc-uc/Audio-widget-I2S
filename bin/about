@@ -1,1 +1,18 @@
+# Despre acest firmware
 
+Din ce am reusit sa experimentez pana acum , softul implementat isi face treaba cu brio in sistem,atat doar ca are doua "mici" limitari pe care ar urma sa le corectez din framework.
+
+## Limitari
+
+1. Functia de mutting din software-ul Windows nu functioneaza.
+2. Sunt disponibile doar 2 frecvente de esantionare din 6 , 44100Hz si 48000Hz / 24 bit depth
+
+### Alte mentiuni
+
+Imediat dupa programarea interfetei si primirea primului restart , Windowsul a instantiat clasele audio USB si a recunoscut automat interfata.
+In prima instanta a pornit pe modul UAC1 (USB1.1 mode) , dar dupa comutarea hardware pe UAC2(USB2.0 HiSpeed) Windowsul a realizat trecerea soft de la UAC1 la UAC2.
+
+![image](https://user-images.githubusercontent.com/54248886/69483612-1adbfd80-0e32-11ea-8bd8-8abb66fa61b4.png)
+
+
+In imagine se poate observa 2 instante ale interfetei , cea care apare ca "Other device" este instanta pentru mod de operare USB UAC1,deoarece in momentul de fata sistemul a ramas configurat pe mod UAC2.
