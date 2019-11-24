@@ -89,7 +89,7 @@ Din punct de vedere functional, din software-ul dezvoltat in acel proiect am fol
 Consider ca nu este necesar sa uploadez toate sursele C pentru generarea firmware-ului , asa ca voi atasa fisierul HEX(.elf) continand versiunea stabila de firmware pentru acest sistem.
 
 
-##### Programarea microcontrollerului:
+#### Programarea microcontrollerului:
 
 Seria UC3A3 de la Atmel(Microchip-ish or whatsoever) au incarcate din fabricatie un bootloader ce contine un USB DFU(Device Firmware Upgrade).
 DFU este un protocol ce se regaseste in orice tip de terminal ce are propriul sistem de operare,deoarece faciliteaza operatiunea de rescriere a software-ului deja setat in terminalul respectiv utilizand o interfata de comunicare uzuala.
@@ -132,3 +132,23 @@ Ca si software , interfata este gandita destul de simplist,deoarece se considera
 Software-ul de control este scris pe framework-ul ASIO (_Audio Stream Input-Output_).
 Ca si un mic memo : ASIO este un protocol de drivere open-sourced pentru "sound card-uri" specificat in industria audio de firma Steinberg.
 Ca si functionare a protocolului : ASIO produce un bypass al caii audio normale la nivel de aplicatie din sistemul de operare utilizat,astfel incat sa se evite "layer-ele" suplimentare la nivel de software.Acest lucru permite aplicatiei sa se conecteze la sound card direct,fara intermedierea sistemului de operare in procesul respectiv.Acest lucru duce la o reducere foarte mare a latentei de transfer a informatiei audio de la soft la hard.
+
+
+![Foobar2000_logo_2014](https://user-images.githubusercontent.com/54248886/69500290-707fdb00-0f02-11ea-9650-a19ed6225774.png)
+
+>>Foobar2000 **logo de mai sus** este un player audio freeware (nu este necesara licenta de utilizare) pentru Microsoft Windows, iOS, si Android dezvoltat de Peter Pawłowski.Ca si software este cunoscut designul sau extrem de modular , multitudinea de caracteristici si flexibilitatea in configurare pentru user.
+>>Acest player suporta foarte multe formaturi audio , prezinta o multitudine de caracteristici organizarea fisierelor , metadata si are implementata o interfata de convertor utilizabila in linie de comanda (transcodare fisiere si ripping CD-Audio). 
+
+![image](https://user-images.githubusercontent.com/54248886/69500447-cbfe9880-0f03-11ea-9537-2f1b52a718ac.png)
+
+In poza , aplicatia redand un fisier audio .FLAC (lossless audio codec) , configurat pentru output pe WASAPI* , buffer length minim pentru jitter scazut intre interfata de comunicare si controller.
+
+>>>> **Ca si ASIO , WASAPI (Windows Audio Session API) este un plugin utilizat in audio pentru a permite trecerea fluxului de date audio direct intre terminalul audio din aplicatia ce reda fisierele audio**
+>>>> Diferenta principala dintre ASIO si WASAPI este ca , primul este un plugin open-source (poate fi luat si modificat in drivere de oricine) , pe cand cel din urma este conceput de MICROSOFT si na...copyright in a nutshell daca vrea cineva sa modifice core-ul plugin-ului.
+
+![image](https://user-images.githubusercontent.com/54248886/69500504-6f4fad80-0f04-11ea-988d-c1e252b3e5ac.png)
+
+>>>Ca si comparatie intre cele 2 pluginuri, ambele sunt foarte usor de utilizat si instalat , cu precizarea ca ASIO functioneaza cu doar cu dispozitivele ce au descriptori dedicati in driverele lor , pe cand WASAPI functioneaza cu orice fel de endpoint device , atata timp cat este selectat pluginul ca si output pentru device-ul respectiv si nu adresa "Direct Sound".
+
+>>>> **De precizat ar mai fi ca,atata timp cat un eveniment WASAPI / ASIO este executat , nu se mai reda niciun flow audio din partea altor aplicatii pana nu se incheie evenimentul respectiv**
+
