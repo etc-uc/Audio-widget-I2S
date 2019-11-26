@@ -1,1 +1,6 @@
+## About files
 
+1.AWSetup - instaleaza / activeaza driverele necesare utilizarii interfetei pe USB (in cazul in care Windowsul nu o recunoaste as-it-is)
+2.ASIO_bin_patch - se copiaza in batchisp pentru a se putea executa upload-ul primului firmware
+3.ASIO4ALL - aplicatie ce permite configurarea evenimentelor tip ASIO la redare de flow audio catre sound-card
+4.WASAPI component - plugin pentru foobar2000 ce permite,ca la activarea acestuia, sa creeze evenimente WASAPI la redare audio
