@@ -152,3 +152,27 @@ In poza , aplicatia redand un fisier audio .FLAC (lossless audio codec) , config
 
 >>>> **De precizat ar mai fi ca,atata timp cat un eveniment WASAPI / ASIO este executat , nu se mai reda niciun flow audio din partea altor aplicatii pana nu se incheie evenimentul respectiv**
 
+
+### Ansamblare
+
+Pentru incapsularea proiectului am ales sa separ sursa de alimentare de partea de DAC+Amplif casca pentru a evita producerea de zgomot inutil in sistem. **ideea este tocmai de a avea un zgomot minim in tot lantul si atunci este de preferat ca sursa sa stea cat mai departe de elementele sensibile ale sistemului**
+
+Asadar , pentru incapsularea amplificatorului am comandat o carcasa din aluminiu eloxat argintiu de la Hammond,cu dimensiunile 220x103x31mm (LxlxH) , iar pentru sursa probabil voi utiliza o cutie de ramificatie electrica **de aparataj** pentru ca nu are prea mare importanta aspectul ei (ca oricare alta sursa de alimentare, va sta intr-un loc prea putin vizibil).
+
+![image](https://www.hammfg.com/files/products/1455/1455l2201rb.jpg)
+
+Pentru alimentare voi monta pe ambele carcase o mufa DIN 3P ce se asigura cu o piulita de blocare , cu 3 pini deoarece amplificatorul se alimenteaza diferential.
+
+#### Masuri pentru evitarea producerii/captarii de zgomot in circuit:
+
+1.Decuplarea alimentarilor cu condensatoare de valoare foarte mica (capabilitate de lucru in frecvente mari) - zeci/sute nF si de valoare f. mare (capabilitate de lucru in frcvente mici).
+
+2.Torsadarea cablurilor de alimentare din carcasa (reducerea emisiilor em. in circuit).
+
+3.Separarea pe cat posibil a circuitelor de semnal mic fata de cele de alimentare.
+
+4.Utilizarea unui punct comun de legatura a maselor din intregul circuit (star pattern sau line pattern , in cazul meu voi utiliza un line pattern deoarece nu sunt implicati curenti mari de circuit - max 1A peak).
+
+5.Utilizare de filtraj cat mai generos - capacitatile mari de filtrare implica un riplu foarte mic al sursei de alimentare,deci posibilitatea aparitiei unui zgomot perturbator pe alimentare minim.
+
+**RIPLU -> componenta alternativa aparuta la ciclurile de incarcare-descarcare ale condensatorilor intr-un redresor**
