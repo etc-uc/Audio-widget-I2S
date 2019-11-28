@@ -191,7 +191,7 @@ Pentru alimentare voi monta pe ambele carcase o mufa DIN 3P ce se asigura cu o p
 
 **RIPLU -> componenta alternativa aparuta la ciclurile de incarcare-descarcare ale condensatorilor intr-un redresor**
 
-#### Limitari si probleme aparute de-a lungul constructiei
+## Limitari si probleme aparute de-a lungul constructiei:
 
 Cea mai mare problema am avut-o la ansamblare...un cosmar si jumatate din perspectiva unei persoane ce a lucrat mai tot timpul cu componente THT si acum s-a lovit de "zidul" lipirii de componente SMD. Am facut si prostia de a ma apuca si fix de cea mai complicata placa mai intai , cea a interfetei USB-I2S, cei 144 de pini ai uC-ului mi-au dat de furca pana l-am lipit cum trebuie,deoarece m-am incapatanat sa il lipesc pin cu pin cu letconul si la un moment dat aveam efectiv mai multe scurturi intre pini decat pini lipiti cum trebuie de placa.Dar acest mic detaliu a fost rezolvat cu mult flux,efect capilar si injuraturi cand nu voia fludorul sa plece dintre pini pe talpa varfului folosit.
 De altfel ,toate componentele 0603 de pe aceasta placa mi-au provocat o mare placere de a invoca sfinti de-a lungul lipirii lor.
