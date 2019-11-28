@@ -135,7 +135,7 @@ Summary:  Total 11   Passed 11   Failed 0
 
 Dupa programarea uC-ului calculatorul "teoretic" ar trebui sa il recunoasca automat si sa instantieze driverul necesar utilizarii acestuia. Cel putin in Windows 10 nu exista probleme de compatibilitate a driverelor, recunoscandu-le automat la conectarea interfetei. Posibil sa existe probleme de "backwards compatibility" a firmware-ului cu versiunile mai vechi de Windows,dar se rezolva instaland manual "inf drivers".
 
-#### Utilizare:
+## Utilizare:
 
 ![Asio_logo](https://user-images.githubusercontent.com/54248886/69481196-d04d8780-0e17-11ea-891d-d0f364f49dae.png)
 
