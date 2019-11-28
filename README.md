@@ -186,5 +186,7 @@ Pentru alimentare voi monta pe ambele carcase o mufa DIN 3P ce se asigura cu o p
 4.Utilizarea unui punct comun de legatura a maselor din intregul circuit (star pattern sau line pattern , in cazul meu voi utiliza un line pattern deoarece nu sunt implicati curenti mari de circuit - max 1A peak).
 
 5.Utilizare de filtraj cat mai generos - capacitatile mari de filtrare implica un riplu foarte mic al sursei de alimentare,deci posibilitatea aparitiei unui zgomot perturbator pe alimentare minim.
+>>Cu riscul aparitiei unui curent de incarcare foarte mare,se recomanda utilizarea de capacitati mari pentru evitarea riplului,mai ales in circuite unde este nevoie de curenti mari pe perioade scurte.
+>>>Problema curentilor mari de incarcare se rezolva cu niste rezistente serie cu condensatorii (zeci de ohmi),care sa limiteze curentul prin ei la pornire,dupa aceea rezistentele se sunteaza cu un releu si se utilizeaza normal **soft-start empiric**
 
 **RIPLU -> componenta alternativa aparuta la ciclurile de incarcare-descarcare ale condensatorilor intr-un redresor**
