@@ -107,17 +107,29 @@ Dupa introducerea comenzii se executa programarea uC-ului in 11 pasi:
 AT32UC3A3256 - USB - USB/DFU
 
 Device selection....................... PASS
+
 Hardware selection..................... PASS
+
 Opening port........................... PASS
+
 Reading Bootloader version............. PASS    1.0.3
+
 Erasing................................ PASS
+
 Selecting FLASH........................ PASS
+
 Blank checking......................... PASS    0x00000 0x3ffff
+
 Parsing ELF file....................... PASS    widget.elf
+
 WARNING: The user program and the bootloader overlap!
+
 Programming memory..................... PASS    0x00000 0x1c43f
+
 Verifying memory....................... PASS    0x00000 0x1c43f
+
 Starting Application................... PASS    RESET   0
+
 
 Summary:  Total 11   Passed 11   Failed 0
 
