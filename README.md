@@ -190,3 +190,20 @@ Pentru alimentare voi monta pe ambele carcase o mufa DIN 3P ce se asigura cu o p
 >>>Problema curentilor mari de incarcare se rezolva cu niste rezistente serie cu condensatorii (zeci de ohmi),care sa limiteze curentul prin ei la pornire,dupa aceea rezistentele se sunteaza cu un releu si se utilizeaza normal **soft-start empiric**
 
 **RIPLU -> componenta alternativa aparuta la ciclurile de incarcare-descarcare ale condensatorilor intr-un redresor**
+
+#### Limitari si probleme aparute de-a lungul constructiei
+
+Cea mai mare problema am avut-o la ansamblare...un cosmar si jumatate din perspectiva unei persoane ce a lucrat mai tot timpul cu componente THT si acum s-a lovit de "zidul" lipirii de componente SMD. Am facut si prostia de a ma apuca si fix de cea mai complicata placa mai intai , cea a interfetei USB-I2S, cei 144 de pini ai uC-ului mi-au dat de furca pana l-am lipit cum trebuie,deoarece m-am incapatanat sa il lipesc pin cu pin cu letconul si la un moment dat aveam efectiv mai multe scurturi intre pini decat pini lipiti cum trebuie de placa.Dar acest mic detaliu a fost rezolvat cu mult flux,efect capilar si injuraturi cand nu voia fludorul sa plece dintre pini pe talpa varfului folosit.
+De altfel ,toate componentele 0603 de pe aceasta placa mi-au provocat o mare placere de a invoca sfinti de-a lungul lipirii lor.
+Apexul a fost atins la ora 3 noaptea,dupa ce am terminat de lipit placuta interfetei,am legat-o la USB si am realizat,cu stupoare,ca nu face nimic...nu se conecta la calculator.Din nou,nervi injuraturi,abtineri din a tranti minunea peste tot.
+A doua zi am rezolvat problema in 10 minute : stabilizatorul 5V-3.3V de pe placa avea un pin " in aer " si nu aveam output pentru alimentarea uC-ului.
+
+**Morala ar fi ca: prea multe beri si oboseala dupa 12 ore de alergat dintr-o parte in alta dauneaza bunei atentii asupra realizarii unui montaj.**
+
+Montarea placii DAC a fost pretty straightforward , nu am intampinat cine stie ce dificultati, mai ales acum avand experienta lipirii "ghindoacelor" 0603 pe placa interfetei ... componentele 1206 si integratul SSOP cu 20 de pini au fost PARFUM!!
+
+Placa amplificatorului am montat-o si cam atat, pana acum m-am folosit doar de mufa de casca pentru a vedea daca functioneaza dacul cum trebuie.Urmeaza sa montez si sursa de alimentare si o voi testa si pe aceasta.
+
+Singura limitare "constructiva" mi-am creat-o singur,din pricina carcasei alese pentru circuit. Am ales o carcasa cu inaltimea de 31mm, insuficient pentru inaltimea potentiometrului pe PCB-ul amplificatorului.Am fAacut aceasta eroare deoarece nu am tinut cont ca primele caneluri de suport pentru cablaje incep de la aproximativ 5mm fata de fundul carcasei , ceea ce ar insemna ca depasesc inaltimea montarii capacului cu potentiometrul cu vreo 2mm din ce am masurat.
+
+Solutia: montat potentiometrul si mufa de casca solitare pe panoul frontal si facut legaturi cu PCB-ul prin cabluri torsadate si mufate.
