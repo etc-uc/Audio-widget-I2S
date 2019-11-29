@@ -207,3 +207,19 @@ Placa amplificatorului am montat-o si cam atat, pana acum m-am folosit doar de m
 Singura limitare "constructiva" mi-am creat-o singur,din pricina carcasei alese pentru circuit. Am ales o carcasa cu inaltimea de 31mm, insuficient pentru inaltimea potentiometrului pe PCB-ul amplificatorului.Am fAacut aceasta eroare deoarece nu am tinut cont ca primele caneluri de suport pentru cablaje incep de la aproximativ 5mm fata de fundul carcasei , ceea ce ar insemna ca depasesc inaltimea montarii capacului cu potentiometrul cu vreo 2mm din ce am masurat.
 
 Solutia: montat potentiometrul si mufa de casca solitare pe panoul frontal si facut legaturi cu PCB-ul prin cabluri torsadate si mufate.
+
+## Constructie sursa de alimentare
+
+Cel mai mare semn de intrebare posibil din tot proiectul ce se putea pune : Ce sursa de alimentare sa folosesc , liniar sau comutatie? Cum naiba fac sa nu stric tot "zenul" montajului cu zgomote inutile aduse de catre o sursa?
+
+De altfel, orice sursa as alege inevitabil tot ma aleg cu un oarecare zgomot in circuit,pentru ca nu poti elimina o cauza fara a genera un alt defect.
+
+Solutia : **in mintea mea** 
+
+Se da o sursa clasica stabilizata , realizata extern circuitelor de semnal / amplificat. Sursa o voi realiza cu un transformator incapsulat in rasina de 10-15VA,deoarece nu am nevoie de foarte multa putere de iesire. Redresare cu punte de diode clasise / schottky (inca nu m-am decis daca se merita efortul pentru diode schottky,mai ales pentru frecventa retelei).
+
+Filtraj inainte de stabilizare 2x4700uF + decuplarile de rigoare pe diode cu 100nF + 220-470nF in bratul stabilizatorului + buffer suplimentar de curent dupa stabilizatoare 2x4700uF + 100nF. Bufferul il voi amplasa in carcasa interfetei,pentru a realiza si punctul comun de legatura al masei pentru tot circuitul.
+
+Imi asum riscul ca voi avea un curent initial de incarcare enorm pentru acel transformator (10000uF insumati pot produce un oarecare deranj mai ales pentru o sursa ce nu debiteaza un curent foarte mare),dar acest lucru il voi vedea exact cand voi finaliza si acest pas.
+
+Stabilizatoarele probabil vor fi clasicele 7812/7912 (not so many fancy things there , sursa trebuie sa fie cat mai simpla si eficienta,fara prea multe briz-briz-uri).
