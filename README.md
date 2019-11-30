@@ -97,6 +97,7 @@ DFU este un protocol ce se regaseste in orice tip de terminal ce are propriul si
 De aceea , microcontrolerul pe care l-am utilizat in montaj (AT32UC3A3256) l-am programat cu doar un USB si programul ATMEL FLIP 3.4.7 , utilizand din acesta batchisp-ul (pentru ca,prin constructia sa , programul Flip nu suporta la un nivel stabil aceasta serie de uC-uri).
 
 ![image](https://user-images.githubusercontent.com/54248886/69480608-a1341780-0e11-11ea-83ec-910466c1f9c6.png)
+![image](https://user-images.githubusercontent.com/54248886/69905814-d5837700-13c1-11ea-8b1b-f8003fdd6883.png)
 
 Nu mai pot reproduce inca o data procesul de programare (sau il voi mai face ulterior daca dezvolt un alt firmware mai performant pentru cerinta data), dar comanda de programare pe care am utilizat-o este:
 **batchisp -device at32uc3a3256 -hardware usb -operation erase f memory flash blankcheck loadbuffer widget.elf program verify start reset 0**
