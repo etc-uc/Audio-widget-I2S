@@ -224,3 +224,18 @@ Filtraj inainte de stabilizare 2x4700uF + decuplarile de rigoare pe diode cu 100
 Imi asum riscul ca voi avea un curent initial de incarcare enorm pentru acel transformator (10000uF insumati pot produce un oarecare deranj mai ales pentru o sursa ce nu debiteaza un curent foarte mare),dar acest lucru il voi vedea exact cand voi finaliza si acest pas.
 
 Stabilizatoarele probabil vor fi clasicele 7812/7912 (not so many fancy things there , sursa trebuie sa fie cat mai simpla si eficienta,fara prea multe briz-briz-uri).
+
+## Final updates
+
+1. La indemnul tatalui meu am achizitionat inca o carcasa de la Hammond , "sora" celei pe care am prezentat-o mai sus , din pricina incapsularii tuturor modulelor intr-un singur loc si nu "in o mie si una de cutiute". Ca si forma sunt identice,singura diferenta o face inaltimea lor (31mm vs 53mm).
+
+2. Am ansamblat sursa de alimentare *dupa lupte seculare as putea spune* si am descoperit ca pentru ce am eu nevoie 4700uF pe brat de alimentare este mai mult decat suficient.Dupa cum ma asteptam , folosind pattern-ul line pentru legarea maselor la comun si decuplarea "sanatoasa" a elementelor sursa nu induce zgomot in circuite...great succes i would say :)
+Singura problema: am facut-o pe cablaj de test pentru ca nu am mai avut rabdare sa corodez o foaie de cablaj ... but not so much of a thing pentru ca am tinut cont de dimensionarea corecta a traseelor de circuit si pozitionarea elementelor disipatoare de caldura astfel incat circuitul sa nu se degradeze rapid,dar totusi sa fie compact si sa se incadreze in aria necesara.
+
+3. Odata cu sursa,am testat intr-un final si amplificatorul final si pot spune ca a meritat asteptarea...chiar suna foarte bine in combinatie cu dacul facut.Imi era foarte teama de imperecherea lor,dar a fost doar paranoia si atat.
+
+Dar credeti ca am scapat de peripetii? Nicio sansa, la prima "cheie" amplificatorul nu a vrut sa cante nici sa-l fi batut.
+Am incercat sa elimin toate posibilele cauze , in prima instanta am inlocuit toate cablurile de legatura dar degeaba ca tot nu a vrut sa mearga. Am sucit sursa pe toate partile,am zis ca poate am legat ceva prost pe acolo,dar nicio sansa,toate legaturile erau facute bine si aveam tensiune aproape egala pe ambele brate de alimentare.Ce mama masii sa mai aiba si placa asta acum?!
+Am legat dacul direct la iesirea de casti si aveam semnal redat,deci nicio sansa sa fie din alta parte problema.
+Deschid schema , stau si ma uit la layoutul cablajului si dupa realizez ca integratul meu amplificator este montat invers pe pcb ... #$%^#$$@$^$%^#$#@%#$^ masii de treaba. Tuff job de dezlipit din cauza fludorului ce tine padul de disipatie termica lipit de cablaj.Din nou,sfinti,altare si tot tacamul pana l-am dezlipit si relipit (noroc cu colegul de camera muuuultt mai rabdator decat mine).
+Dupa ce l-am relipit zeii siliciului au decis sa nu imi arda integratul si l-am putut auzi cantand, finally . Intr-un final , tot lantul meu audio este gata si functional, iar singurul lucru ce mi-a mai ramas de facut este sa gauresc panoul frontal si sa strang ultimele 4 suruburi de pe cutie :)
